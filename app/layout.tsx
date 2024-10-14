@@ -2,9 +2,14 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
+// const geisMontserrat = localFont({
+//   src: "/Montserrat-VariableFont_wght.ttf",
+//   variable: "--font-geist-montserrat",
+//   weight: "100 900",
+// });
+const geisMontserrat = localFont({
+  src: "./fonts/Montserrat-VariableFont_wght.ttf",
+  variable: "--font-geist-montserrat",
   weight: "100 900",
 });
 const geistMono = localFont({
@@ -26,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geisMontserrat.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>
