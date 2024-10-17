@@ -61,7 +61,7 @@ const PricingCard: React.FC<PricingCardProps> = (props) => {
         onClick={props.onClick}
         className={cn(
           "mt-4 rounded-[100px] w-[182px]  lg:h-[52px] text-brand-secondary-dark lg:hover:w-full leading-7 text-[16px] hover:text-white bg-brand-secondary-veryLight font-semibold group-lg:hover:bg-brand-secondary-dark  transition-all duration-200",
-          (isMobile || isTablet) && "text-[12px] h-[30px] w-[120px] mt-2 "
+          (isMobile || isTablet) && "text-[14px] h-[40px] w-[140px] mt-2 "
         )}
         variant="default"
       >
@@ -116,13 +116,13 @@ export const Service: React.FC = () => {
     <div
       className={cn(
         "lg:h-[600px] lg:py-24 flex flex-col items-center justify-start font-montserrat bg-brand-primary-veryLight py-12 px-4",
-        (isMobile || isTablet) && "w-full min-h-screen"
+        (isMobile || isTablet) && "w-full"
       )}
     >
       <h2
         className={cn(
           "text-[20px] lg:text-[32px] md:text-[30px] lg:mb-24 font-bold text-brand-primary-medium",
-          (isMobile || isTablet) && "mb-8"
+          (isMobile || isTablet) && "mb-4"
         )}
       >
         Các gói dịch vụ
@@ -145,9 +145,9 @@ export const Service: React.FC = () => {
       {(isMobile || isTablet) && (
         <div
           className={cn(
-            "grid gap-x-4 gap-y-6 w-full h-full text-lg justify-items-center px-6", // Giữ justify-items-center để các card nằm giữa theo hàng ngang
+            "grid gap-x-4 gap-y-6 w-full h-[650px] text-lg justify-items-center px-6", // Giữ justify-items-center để các card nằm giữa theo hàng ngang
             isMobile && "grid-cols-2 mx-auto h-fit", // 2 cột trên mobile
-            isTablet && "grid-cols-3 mx-auto h-[600px]" // 3 cột trên tablet
+            isTablet && "grid-cols-3 mx-auto h-fit" // 3 cột trên tablet
           )}
         >
           {/* Hiển thị các card */}

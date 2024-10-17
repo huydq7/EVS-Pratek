@@ -72,7 +72,7 @@ export const Intro = () => {
               "py-3 px-6 sm:py-4 sm:px-8",
               "hover:bg-brand-secondary-dark transition-colors duration-300",
               "shadow-lg hover:shadow-xl",
-              isMobile ? "w-full" : "w-auto",
+              isMobile ? "w-[60%] h-[60px]" : "w-auto",
               isTablet ? "h-[50px]" : "lg:h-[60px] xl:h-[70px]"
             )}
           >
