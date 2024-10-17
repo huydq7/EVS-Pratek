@@ -70,7 +70,7 @@ const CustomFooter: React.FC = () => {
   return (
     <footer className="bg-gray-100 py-8 px-4 sm:px-6 lg:px-8 font-montserrat">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+        <div className="flex flex-row justify-between items-center mb-8">
           <Image
             src="/Logo.svg"
             alt="logo"
@@ -118,6 +118,7 @@ export const Footer: React.FC = () => {
   const isMobile = useMediaQuery("(max-width: 640px)");
   const isTablet = useMediaQuery("(min-width: 641px) and (max-width: 1024px)");
   const isSmallMobile = useMediaQuery("(max-width: 433px)");
+
   return (
     <>
       <section className="bg-[#003459] text-brand-secondary-medium py-16 px-4 sm:px-6 lg:px-8 font-montserrat">
@@ -132,9 +133,10 @@ export const Footer: React.FC = () => {
               >
                 {isSmallMobile ? (
                   <>
-                    Đăng ký <br />
-                    Trải nghiệm dịch vụ <br />
-                    <span className="whitespace-nowrap">miễn phí</span>
+                    <span className="block text-2xl">Đăng ký</span>
+                    <span className="block text-lg mt-2">
+                      Trải nghiệm dịch vụ miễn phí
+                    </span>
                   </>
                 ) : isMobile || isTablet ? (
                   "Đăng ký trải nghiệm dịch vụ miễn phí."
@@ -149,7 +151,7 @@ export const Footer: React.FC = () => {
 
               <div
                 className={cn(
-                  "text-xlmb-8 text-brand-secondary-medium font-semibold",
+                  "text-[18px] lg:leading-7 mb-8 text-brand-secondary-medium font-semibold lg:mt-8",
                   (isMobile || isTablet) && "text-[16px] font-normal"
                 )}
               >
@@ -166,7 +168,6 @@ export const Footer: React.FC = () => {
     </>
   );
 };
-
 function getFieldLabel(field: string): string {
   const labels: { [key: string]: string } = {
     taxId: "Mã số thuế",

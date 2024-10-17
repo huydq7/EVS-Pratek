@@ -78,7 +78,7 @@ export const Navbar = () => {
 
           <div className="md:hidden">
             <button onClick={toggleMenu}>
-              <Menu size={24} className="text-brand-primary-veryDark" />
+              <Menu size={24} className="text-brand-primary-veryDark mt-2" />
             </button>
           </div>
         </div>
