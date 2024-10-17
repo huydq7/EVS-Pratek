@@ -7,7 +7,7 @@ import { useMediaQuery } from "usehooks-ts";
 import { cn } from "@/lib/utils";
 
 const RegistrationForm: React.FC = () => {
-  const onFinish = (values: any) => {
+  const onFinish = (values: string) => {
     console.log("Received values:", values);
   };
 
@@ -171,7 +171,9 @@ function getFieldLabel(field: string): string {
   return labels[field] || field;
 }
 
-function getFieldRules(field: string): any[] {
+import { RuleObject } from "antd/lib/form";
+
+function getFieldRules(field: string): RuleObject[] {
   const commonRule = {
     required: true,
     message: `Vui lòng nhập ${getFieldLabel(field).toLowerCase()}!`,
