@@ -147,7 +147,7 @@ export const Service: React.FC = () => {
           className={cn(
             "grid gap-x-4 gap-y-6 w-full h-full text-lg justify-items-center px-6", // Giữ justify-items-center để các card nằm giữa theo hàng ngang
             isMobile && "grid-cols-2 mx-auto h-fit", // 2 cột trên mobile
-            isTablet && "grid-cols-3 mx-auto h-fit" // 3 cột trên tablet
+            isTablet && "grid-cols-3 mx-auto h-[600px]" // 3 cột trên tablet
           )}
         >
           {/* Hiển thị các card */}
