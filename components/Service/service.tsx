@@ -25,7 +25,7 @@ const PricingCard: React.FC<PricingCardProps> = (props) => {
         "relative bg-white group cursor-pointer px-4 py-6 flex flex-col items-center justify-between rounded-2xl transition-all duration-300",
         "w-full h-full",
         props.isPopular &&
-          "lg:bg-brand-primary-medium lg:mb-4 lg:rounded-lg lg:text-white"
+          "lg:bg-brand-primary-medium lg:mb-12 lg:rounded-lg lg:text-white shadow-2xl"
       )}
     >
       {props.isPopular && (
@@ -115,8 +115,8 @@ export const Service: React.FC = () => {
   return (
     <div
       className={cn(
-        "w-full min-h-screen flex flex-col items-center justify-start font-montserrat bg-brand-primary-veryLight py-12 px-4",
-        "lg:py-24"
+        "lg:h-[600px] lg:py-24 flex flex-col items-center justify-start font-montserrat bg-brand-primary-veryLight py-12 px-4",
+        (isMobile || isTablet) && "w-full min-h-screen"
       )}
     >
       <h2
