@@ -2,48 +2,110 @@
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useMediaQuery } from "usehooks-ts";
+import { cn } from "@/lib/utils";
 
 export const Intro = () => {
-  return (
-    <div className="w-[100%] h-[calc(100vh - 84px)] flex items-center font-montserrat group">
-      <div className="w-[60%] flex flex-col px-48 text-[40px] font-bold leading-[48px] relative bottom-32">
-        <span className="text-brand-primary-medium ">Cung Cấp</span>
-        <span className="text-brand-primary-medium">
-          Giải Pháp{" "}
-          <span className="text-brand-secondary-medium">Xác Thực</span>
-        </span>
-        <span className="text-brand-primary-medium">
-          Và{" "}
-          <span className="text-brand-secondary-medium">Lưu Trữ Hóa Đơn</span>
-        </span>
+  const isMobile = useMediaQuery("(max-width: 640px)");
+  const isTablet = useMediaQuery("(min-width: 641px) and (max-width: 1024px)");
 
-        <span className="text-sm text-brand-primary-veryDark mt-8 leading-6">
-          e-Invoice Verify & Storage cung cấp cho bạn những tiện ích hỗ trợ.
+  return (
+    <div
+      className={cn(
+        "w-full min-h-screen flex flex-col lg:flex-row items-center justify-center font-montserrat overflow-hidden",
+        "sm:px-6 px-8 lg:px-0 py-12 lg:py-0",
+      )}
+    >
+      <div
+        className={cn(
+          "w-full lg:w-1/2 flex flex-col",
+          "space-y-6 lg:space-y-8 mb-10 lg:mb-0 lg:ml-20",
+          "lg:pr-12 xl:pr-24"
+        )}
+      >
+        {(isMobile || isTablet) && <ResponsiveIpadImage />}
+
+        <h1
+          className={cn(
+            "font-bold text-center lg:text-left",
+            "text-3xl sm:text-4xl lg:text-5xl xl:text-6xl",
+            "leading-tight"
+          )}
+        >
+          <span className="text-brand-primary-medium">Cung Cấp</span>
           <br />
+          <span className="text-brand-primary-medium">
+            Giải Pháp{" "}
+            <span className="text-brand-secondary-medium">Xác Thực</span>
+          </span>
+          <br />
+          <span className="text-brand-primary-medium">
+            Và{" "}
+            <span className="text-brand-secondary-medium">Lưu Trữ Hóa Đơn</span>
+          </span>
+        </h1>
+
+        <p
+          className={cn(
+            "text-sm sm:text-base lg:text-lg",
+            "text-brand-primary-veryDark",
+            "max-w-2xl mx-auto lg:mx-0",
+            "text-center lg:text-left",
+            "font-semibold"
+          )}
+        >
+          e-Invoice Verify & Storage cung cấp cho bạn những tiện ích hỗ trợ.
           Giúp việc quản lý hóa đơn trở nên dễ dàng hơn.
-        </span>
-        <Button className="rounded-[100px] bg-brand-secondary-medium font-semibold w-[250px] relative top-16 h-[80px] text-[20px] leading-8 px-8 py-4">
-          Dùng thử miễn phí
-        </Button>
+        </p>
+
+        <div className="flex justify-center lg:justify-start">
+          <Button
+            className={cn(
+              "rounded-full bg-brand-secondary-medium text-white",
+              "font-semibold text-base sm:text-lg",
+              "py-3 px-6 sm:py-4 sm:px-8",
+              "hover:bg-brand-secondary-dark transition-colors duration-300",
+              "shadow-lg hover:shadow-xl",
+              isMobile ? "w-full" : "w-auto",
+              isTablet ? "h-[50px]" : "lg:h-[60px] xl:h-[70px]"
+            )}
+          >
+            Dùng thử miễn phí
+          </Button>
+        </div>
       </div>
-      <div className="flex-1 relative overflow-hidden">
-        <Image
-          className="relative left-16"
-          src="/Vector.svg"
-          alt="vector"
-          layout="responsive" // Use responsive layout
-          width={699} // Original width
-          height={603} // Original height
-        />
-        <Image
-          className="absolute top-36"
-          src="/ipad.png"
-          alt="ipad"
-          layout="responsive" // Use responsive layout
-          width={1600} // Original width
-          height={1000} // Original height
-        />
-      </div>
+
+      {!isMobile && !isTablet && (
+        <div className="w-1/2 flex items-center justify-center relative">
+          <ResponsiveIpadImage />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export const ResponsiveIpadImage = () => {
+  const isMobile = useMediaQuery("(max-width: 640px)");
+  const isTablet = useMediaQuery("(min-width: 641px) and (max-width: 1024px)");
+
+  return (
+    <div
+      className={cn(
+        "relative",
+        isMobile
+          ? "w-full h-[200px]"
+          : isTablet
+          ? "w-full h-[300px]"
+          : "w-full h-[500px] xl:h-[600px]"
+      )}
+    >
+      <Image
+        src={isMobile || isTablet ? "/ipad.svg" : "/ipad.png"}
+        layout="fill"
+        objectFit="contain"
+        alt="iPad"
+        className="transform hover:scale-105 transition-transform duration-300"
+      />
     </div>
   );
 };

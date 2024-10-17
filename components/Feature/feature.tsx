@@ -1,4 +1,7 @@
+"use client";
+import { cn } from "@/lib/utils";
 import React from "react";
+import { useMediaQuery } from "usehooks-ts";
 
 export const Feature = () => {
   const features = [
@@ -39,19 +42,31 @@ export const Feature = () => {
       dotPosition: "bottom-0",
     },
   ];
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isTablet = useMediaQuery("(min-width: 769px) and (max-width: 1024px)");
 
   return (
-    <div className="w-full custom-height flex items-center justify-center flex-col p-8 md:p-16 font-montserrat">
-      <h2 className="text-2xl mb-24 leading-8 text-[24px] font-bold text-brand-primary-medium">
+    <div
+      className={cn(
+        "w-full h-auto md:h-[650px] flex items-center justify-center flex-col p-8 md:p-16 font-montserrat",
+        (isMobile || isTablet) && "min-h-screen overflow-hidden"
+      )}
+    >
+      <h2
+        className={cn(
+          "text-2xl lg:-mt-20 mb-10 leading-8 text-[20px] lg:text-[24px] font-bold text-brand-primary-medium",
+          (isMobile || isTablet) && "text-lg"
+        )}
+      >
         Tiện ích của chúng tôi
       </h2>
       <div className="relative max-w-6xl w-full">
         {/* Top dashed line */}
         <div className="absolute w-full top-0 border-t border-dashed border-brand-primary-veryDark">
-          <div className="absolute -top-[8px] left-[50%]  w-[16px] h-[16px] bg-yellow-400 rounded-full" />
+          <div className="absolute -top-[8px] left-[50%] w-[16px] h-[16px] bg-yellow-400 rounded-full" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8 ">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8">
           {features.map((feature, index) => (
             <div
               key={index}
@@ -60,10 +75,20 @@ export const Feature = () => {
               <div
                 className={`absolute -left-[8px] ${feature.dotPosition} w-[16px] h-[16px] bg-yellow-400 rounded-full`}
               />
-              <h3 className="text-lg font-semibold text-brand-primary-medium mb-4 text-[18px] leading-8">
+              <h3
+                className={cn(
+                  "text-lg font-semibold text-brand-primary-medium mb-4 text-[18px] leading-8",
+                  (isMobile || isTablet) && "text-[16px]"
+                )}
+              >
                 {feature.title}
               </h3>
-              <p className="text-brand-primary-veryDark">
+              <p
+                className={cn(
+                  "text-brand-primary-veryDark",
+                  (isMobile || isTablet) && "text-[14px]"
+                )}
+              >
                 {feature.description}
               </p>
             </div>

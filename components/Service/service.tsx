@@ -2,6 +2,8 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { CheckCircle } from "lucide-react";
+import { useMediaQuery } from "usehooks-ts";
+import { cn } from "@/lib/utils";
 
 interface ServicePlan {
   title: string;
@@ -15,19 +17,39 @@ interface PricingCardProps extends ServicePlan {
   onClick: () => void;
 }
 const PricingCard: React.FC<PricingCardProps> = (props) => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isTablet = useMediaQuery("(min-width: 769px) and (max-width: 1024px)");
   return (
-    <div className="relative w-[224px] h-[276px] bg-white group hover:text-white cursor-pointer px-8 hover:bg-brand-primary-medium flex flex-col items-center justify-center hover:mb-20 hover:rounded-lg rounded-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-brand-primary-dark/50">
+    <div
+      className={cn(
+        "relative w-[224px] h-[276px] bg-white group cursor-pointer px-8 flex flex-col items-center justify-center rounded-2xl transition-all duration-300",
+        isMobile && "w-[200px] h-[240px]",
+        props.isPopular &&
+          "lg:bg-brand-primary-medium lg:mb-20 lg:rounded-lg lg:text-white"
+      )}
+    >
       {props.isPopular && (
-        <div className="absolute top-2 right-2 bg-brand-secondary-medium px-2 gap-2 rounded-[100px] text-brand-primary-veryDark text-[10px] font-semibold leading-7">
+        <div
+          className={cn(
+            "absolute top-2 right-2 bg-brand-secondary-medium px-2 gap-2 rounded-[100px] text-brand-primary-veryDark text-[10px] font-semibold leading-7",
+            (isMobile || isTablet) && "-top-2 -right-2 text-[8px]"
+          )}
+        >
           Phổ biến
         </div>
       )}
       <h3 className="text-[16px] leading-6 font-semibold">{props.title}</h3>
-      <h4 className="text-lg font-bold">
-        {props.price} <span>/năm</span>
+      <h4 className="text-lg font-bold flex">
+        {props.price} <span className="font-normal text-[12px] mt-2">/năm</span>
       </h4>
       <div className="text-[14px] leading-4 mt-4 flex flex-col">
-        <span className="text-center text-brand-primary-medium group-hover:text-white transition-all duration-200">
+        <span
+          className={cn(
+            "text-center text-brand-primary-medium transition-all duration-200",
+            props.isPopular && "text-white",
+            (isMobile || isTablet) && "text-brand-primary-medium"
+          )}
+        >
           {props.intro}
         </span>
         <div className="mt-4 mb-2 flex gap-x-2 items-center justify-center">
@@ -37,7 +59,10 @@ const PricingCard: React.FC<PricingCardProps> = (props) => {
       </div>
       <Button
         onClick={props.onClick}
-        className="mt-4 rounded-[100px] w-[182px] h-[52px] text-brand-secondary-dark hover:w-full hover:text-white leading-7 text-[16px] bg-brand-secondary-veryLight font-semibold group-hover:bg-brand-secondary-dark group-hover:text-white transition-all duration-200"
+        className={cn(
+          "mt-4 rounded-[100px] w-[182px]  lg:h-[52px] text-brand-secondary-dark lg:hover:w-full leading-7 text-[16px] hover:text-white bg-brand-secondary-veryLight font-semibold group-lg:hover:bg-brand-secondary-dark  transition-all duration-200",
+          (isMobile || isTablet) && "text-[12px] h-[30px] w-[140px] mt-2 "
+        )}
         variant="default"
       >
         Bắt đầu ngay
@@ -47,6 +72,8 @@ const PricingCard: React.FC<PricingCardProps> = (props) => {
 };
 
 export const Service: React.FC = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isTablet = useMediaQuery("(min-width: 769px) and (max-width: 1024px)");
   const services: ServicePlan[] = [
     {
       title: "Basic",
@@ -86,23 +113,57 @@ export const Service: React.FC = () => {
   ];
 
   return (
-    <div className="custom-height flex flex-col items-center justify-center font-montserrat bg-brand-primary-veryLight py-12">
-      <h2 className="text-2xl mb-12  font-bold text-brand-primary-medium">
+    <div
+      className={cn(
+        "h-[650px] flex flex-col items-center justify-center font-montserrat bg-brand-primary-veryLight py-12",
+        (isMobile || isTablet) && "min-h-screen"
+      )}
+    >
+      <h2
+        className={cn(
+          "text-2xl md:text-[30px] lg:mb-24 font-bold text-brand-primary-medium",
+          (isMobile || isTablet) && "mb-8"
+        )}
+      >
         Các gói dịch vụ
       </h2>
-      <div className="w-[1120px] h-[276px] justify-center items-center flex bg-white rounded-2xl">
-        {services.map((service, index) => (
-          <PricingCard
-            key={index}
-            title={service.title}
-            price={service.price}
-            intro={service.intro}
-            bill={service.bill}
-            isPopular={service.isPopular}
-            onClick={() => console.log(service.title)}
-          />
-        ))}
-      </div>
+      {!isMobile && !isTablet && (
+        <div className="w-[1120px] h-[276px] justify-center items-center flex lg:bg-white rounded-2xl sm:bg-transparent">
+          {services.map((service, index) => (
+            <PricingCard
+              key={index}
+              title={service.title}
+              price={service.price}
+              intro={service.intro}
+              bill={service.bill}
+              isPopular={service.isPopular}
+              onClick={() => console.log(service.title)}
+            />
+          ))}
+        </div>
+      )}
+      {(isMobile || isTablet) && (
+        <div
+          className={cn(
+            "grid gap-x-4 gap-y-6 w-full h-full text-lg justify-items-center px-6", // Giữ justify-items-center để các card nằm giữa theo hàng ngang
+            isMobile && "grid-cols-2 mx-auto", // 2 cột trên mobile
+            isTablet && "grid-cols-3 mx-auto" // 3 cột trên tablet
+          )}
+        >
+          {/* Hiển thị các card */}
+          {services.map((service, index) => (
+            <PricingCard
+              key={index}
+              title={service.title}
+              price={service.price}
+              intro={service.intro}
+              bill={service.bill}
+              isPopular={service.isPopular}
+              onClick={() => console.log(service.title)}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
