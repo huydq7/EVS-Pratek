@@ -54,8 +54,8 @@ export const Feature = () => {
     >
       <h2
         className={cn(
-          "text-2xl lg:-mt-20 mb-10 leading-8 text-[20px] lg:text-[24px] font-bold text-brand-primary-medium",
-          (isMobile || isTablet) && "text-lg"
+          "lg:-mt-20 mb-10 leading-8 font-bold text-brand-primary-medium lg:text-[32px]",
+          (isMobile || isTablet) && "text-[20px]"
         )}
       >
         Tiện ích của chúng tôi
@@ -70,7 +70,7 @@ export const Feature = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="relative p-6 border-l border-dashed border-brand-primary-veryDark hover:bg-[#E5F4F9] transition-colors duration-300 rounded-lg cursor-pointer"
+              className="relative p-6 border-l border-dashed border-brand-primary-veryDark transition-colors duration-300 cursor-pointer"
             >
               <div
                 className={`absolute -left-[8px] ${feature.dotPosition} w-[16px] h-[16px] bg-yellow-400 rounded-full`}

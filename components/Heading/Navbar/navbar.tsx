@@ -99,14 +99,17 @@ export const Navbar = () => {
             </button>
           </div>
           <div className="flex flex-col p-4 space-y-4">
-            <h2 className="cursor-pointer hover:text-brand-primary-veryDark">
+            <h2 className="cursor-pointer hover:text-brand-primary-veryDark relative group">
               Trang chủ
+              <span className="absolute left-0 bottom-0 w-full h-[2px] bg-brand-primary-veryDark scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
             </h2>
-            <h2 className="cursor-pointer hover:text-brand-primary-veryDark">
+            <h2 className="cursor-pointer hover:text-brand-primary-veryDark relative group">
               Đọc hóa đơn
+              <span className="absolute left-0 bottom-0 w-full h-[2px] bg-brand-primary-veryDark scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
             </h2>
           </div>
-          <div className="mt-auto p-4 space-y-4">
+
+          <div className="p-4 space-y-4">
             <Button
               className="w-full rounded-3xl border-brand-primary-veryDark text-brand-primary-veryDark font-sm font-semibold hover:bg-brand-primary-light"
               variant="outline"

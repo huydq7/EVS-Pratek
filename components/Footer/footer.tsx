@@ -35,33 +35,33 @@ const RegistrationForm: React.FC = () => {
           </Form.Item>
         ))}
         <Form.Item>
+          <p
+            className={cn(
+              "text-center text-sm text-gray-300 mt-4",
+              (isMobile || isTablet) && "text-xs"
+            )}
+          >
+            Bằng việc đăng ký tài khoản, bạn đã chấp nhận{" "}
+            <a href="#" className="text-brand-secondary-medium hover:underline">
+              Điều khoản sử dụng
+            </a>{" "}
+            và{" "}
+            <a href="#" className="text-brand-secondary-medium hover:underline">
+              Chính sách bảo mật
+            </a>{" "}
+            của eVS.
+          </p>
           <Button
             type="submit"
             className={cn(
-              "w-full bg-brand-secondary-medium hover:bg-brand-secondary-dark text-brand-primary-veryDark hover:text-white transition-colors duration-200 rounded-full py-3 font-bold",
-              (isMobile || isTablet) && "text-sm"
+              "w-full bg-brand-secondary-medium hover:bg-brand-secondary-dark text-brand-primary-veryDark lg:mt-8 hover:text-white transition-colors duration-200 rounded-full py-3 font-bold",
+              (isMobile || isTablet) && "text-sm mt-8"
             )}
           >
             Đăng ký ngay
           </Button>
         </Form.Item>
       </Form>
-      <p
-        className={cn(
-          "text-center text-sm text-gray-300 mt-4",
-          (isMobile || isTablet) && "text-xs"
-        )}
-      >
-        Bằng việc đăng ký tài khoản, bạn đã chấp nhận{" "}
-        <a href="#" className="text-brand-secondary-medium hover:underline">
-          Điều khoản sử dụng
-        </a>{" "}
-        và{" "}
-        <a href="#" className="text-brand-secondary-medium hover:underline">
-          Chính sách bảo mật
-        </a>{" "}
-        của eVS.
-      </p>
     </div>
   );
 };
@@ -117,7 +117,7 @@ const CustomFooter: React.FC = () => {
 export const Footer: React.FC = () => {
   const isMobile = useMediaQuery("(max-width: 640px)");
   const isTablet = useMediaQuery("(min-width: 641px) and (max-width: 1024px)");
-
+  const isSmallMobile = useMediaQuery("(max-width: 433px)");
   return (
     <>
       <section className="bg-[#003459] text-brand-secondary-medium py-16 px-4 sm:px-6 lg:px-8 font-montserrat">
@@ -130,27 +130,33 @@ export const Footer: React.FC = () => {
                   (isMobile || isTablet) && "text-xl"
                 )}
               >
-                {isMobile || isTablet ? (
+                {isSmallMobile ? (
+                  <>
+                    Đăng ký <br />
+                    Trải nghiệm dịch vụ <br />
+                    <span className="whitespace-nowrap">miễn phí</span>
+                  </>
+                ) : isMobile || isTablet ? (
                   "Đăng ký trải nghiệm dịch vụ miễn phí."
                 ) : (
                   <span>
                     Đăng ký <br />
                     Trải nghiệm <br />
-                    Dịch vụ miễn phí.
+                    Dịch vụ <span className="whitespace-nowrap">miễn phí</span>
                   </span>
                 )}
               </h2>
 
-              <p
+              <div
                 className={cn(
                   "text-xlmb-8 text-brand-secondary-medium font-semibold",
                   (isMobile || isTablet) && "text-[16px] font-normal"
                 )}
               >
-                Để tìm hiểu thêm về các tính năng của hệ thống,
-                <br />
+                Để tìm hiểu thêm về các tính năng của hệ thống,{" "}
+                {isMobile || isTablet ? "" : <br />}
                 mời bạn tham gia trải nghiệm miễn phí.
-              </p>
+              </div>
             </div>
             <RegistrationForm />
           </div>

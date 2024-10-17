@@ -54,7 +54,7 @@ const PricingCard: React.FC<PricingCardProps> = (props) => {
         </span>
         <div className="mt-4 mb-2 flex gap-x-2 items-center justify-center">
           <CheckCircle size={16} />
-          <span>{props.bill}</span>
+          <span className="font-semibold">{props.bill}</span>
         </div>
       </div>
       <Button
@@ -121,7 +121,7 @@ export const Service: React.FC = () => {
     >
       <h2
         className={cn(
-          "text-2xl md:text-[30px] lg:mb-24 font-bold text-brand-primary-medium",
+          "text-[20px] lg:text-[32px] md:text-[30px] lg:mb-24 font-bold text-brand-primary-medium",
           (isMobile || isTablet) && "mb-8"
         )}
       >
