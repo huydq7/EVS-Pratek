@@ -115,8 +115,8 @@ export const Service: React.FC = () => {
   return (
     <div
       className={cn(
-        "h-[650px] flex flex-col items-center justify-center font-montserrat bg-brand-primary-veryLight py-12",
-        (isMobile || isTablet) && "min-h-screen"
+        "w-full min-h-screen flex flex-col items-center justify-start font-montserrat bg-brand-primary-veryLight py-12 px-4",
+        "lg:py-24"
       )}
     >
       <h2
