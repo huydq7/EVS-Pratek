@@ -25,7 +25,7 @@ const PricingCard: React.FC<PricingCardProps> = (props) => {
         "relative bg-white group cursor-pointer px-4 py-6 flex flex-col items-center justify-between rounded-3xl transition-all duration-300",
         "w-full h-full",
         props.isPopular &&
-          "lg:bg-brand-primary-medium lg:mb-12 lg:rounded-3xl lg:text-white shadow-2xl"
+          "lg:bg-brand-primary-medium lg:mb-12 lg:rounded-3xl lg:text-white shadow-3xl z-[9999]"
       )}
     >
       {props.isPopular && (
