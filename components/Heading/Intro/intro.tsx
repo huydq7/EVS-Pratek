@@ -13,14 +13,14 @@ export const Intro = () => {
     <div
       className={cn(
         "w-full min-h-screen flex flex-col lg:flex-row items-center justify-center font-montserrat overflow-hidden",
-        "sm:px-6 px-8 lg:px-0 py-12 lg:py-0",
+        "sm:px-6 px-8 lg:px-0 py-12 lg:py-0"
       )}
     >
       <div
         className={cn(
           "w-full lg:w-1/2 flex flex-col",
           "space-y-6 lg:space-y-8 mb-10 lg:mb-0 lg:ml-20",
-          "lg:pr-12 xl:pr-24"
+          "lg:ml-40"
         )}
       >
         {(isMobile || isTablet) && <ResponsiveIpadImage />}
