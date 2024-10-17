@@ -22,10 +22,10 @@ const PricingCard: React.FC<PricingCardProps> = (props) => {
   return (
     <div
       className={cn(
-        "relative w-[224px] h-[276px] bg-white group cursor-pointer px-8 flex flex-col items-center justify-center rounded-2xl transition-all duration-300",
-        isMobile && "w-[200px] h-[240px]",
+        "relative bg-white group cursor-pointer px-4 py-6 flex flex-col items-center justify-between rounded-2xl transition-all duration-300",
+        "w-full h-full",
         props.isPopular &&
-          "lg:bg-brand-primary-medium lg:mb-20 lg:rounded-lg lg:text-white"
+          "lg:bg-brand-primary-medium lg:mb-4 lg:rounded-lg lg:text-white"
       )}
     >
       {props.isPopular && (
@@ -146,8 +146,8 @@ export const Service: React.FC = () => {
         <div
           className={cn(
             "grid gap-x-4 gap-y-6 w-full h-full text-lg justify-items-center px-6", // Giữ justify-items-center để các card nằm giữa theo hàng ngang
-            isMobile && "grid-cols-2 mx-auto", // 2 cột trên mobile
-            isTablet && "grid-cols-3 mx-auto" // 3 cột trên tablet
+            isMobile && "grid-cols-2 mx-auto h-fit", // 2 cột trên mobile
+            isTablet && "grid-cols-3 mx-auto h-fit" // 3 cột trên tablet
           )}
         >
           {/* Hiển thị các card */}
