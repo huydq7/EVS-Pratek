@@ -60,8 +60,8 @@ const PricingCard: React.FC<PricingCardProps> = (props) => {
       <Button
         onClick={props.onClick}
         className={cn(
-          "mt-4 rounded-[100px] w-[182px]  lg:h-[52px] text-brand-secondary-dark lg:hover:w-full leading-7 text-[16px] hover:text-white bg-brand-secondary-veryLight font-semibold group-lg:hover:bg-brand-secondary-dark  transition-all duration-200",
-          (isMobile || isTablet) && "text-[14px] h-[40px] w-[140px] mt-2 "
+          "mt-4 rounded-[100px] w-[182px]  lg:h-[52px] text-brand-secondary-dark lg:hover:w-full px-4 py-2 leading-7 text-[16px] hover:text-white bg-brand-secondary-veryLight font-semibold group-lg:hover:bg-brand-secondary-dark  transition-all duration-200",
+          (isMobile || isTablet) && "text-[14px] w-fit h-fit mt-2 "
         )}
         variant="default"
       >

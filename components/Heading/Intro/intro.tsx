@@ -8,13 +8,15 @@ import { cn } from "@/lib/utils";
 export const Intro = () => {
   const isMobile = useMediaQuery("(max-width: 640px)");
   const isTablet = useMediaQuery("(min-width: 641px) and (max-width: 1024px)");
+  const isIPhoneSE = useMediaQuery("(min-width: 375px) and (max-width: 375px)");
 
   return (
     <div
       className={cn(
         "w-full min-h-screen flex flex-col lg:flex-row items-center justify-center font-montserrat overflow-hidden",
         "sm:px-6 px-8 lg:px-0 py-12 lg:py-0",
-        isMobile || (isTablet && "mt-24") // Add this to move the text down on larger screens
+        isMobile || (isTablet && "mt-24"),
+        isIPhoneSE && "mt-4"
       )}
     >
       <div
@@ -22,7 +24,8 @@ export const Intro = () => {
           "w-full lg:w-1/2 flex flex-col",
           "space-y-6 lg:space-y-8 mb-10 lg:mb-0 lg:ml-20",
           "lg:ml-40",
-          !isMobile && !isTablet && "lg:mt-12" // Adjust the margin-top to move the text down
+          !isMobile && !isTablet && "lg:mt-12",
+          isIPhoneSE && "mt-4 space-y-4"
         )}
       >
         {(isMobile || isTablet) && <ResponsiveIpadImage />}
@@ -31,7 +34,7 @@ export const Intro = () => {
           className={cn(
             "font-bold text-center lg:text-left",
             "text-3xl sm:text-4xl lg:text-5xl xl:text-6xl",
-            (isMobile || isTablet) && "-mb-24"
+            isIPhoneSE && "text-2xl mt-2"
           )}
         >
           <span className="text-brand-primary-medium leading-tight">
@@ -57,7 +60,8 @@ export const Intro = () => {
             "text-brand-primary-veryDark",
             "max-w-2xl mx-auto lg:mx-0",
             "text-center lg:text-left",
-            "font-semibold"
+            "font-semibold",
+            isIPhoneSE && "text-sm"
           )}
         >
           e-Invoice Verify & Storage cung cấp cho bạn những tiện ích hỗ trợ.
@@ -73,7 +77,8 @@ export const Intro = () => {
               "hover:bg-brand-secondary-dark transition-colors duration-300",
               "shadow-lg hover:shadow-xl",
               isMobile ? "w-[60%] h-[60px]" : "w-auto",
-              isTablet ? "h-[50px]" : "lg:h-[60px] xl:h-[70px]"
+              isTablet ? "h-[50px]" : "lg:h-[60px] xl:h-[70px]",
+              isIPhoneSE && "w-full h-[50px] text-sm"
             )}
           >
             Dùng thử miễn phí
@@ -91,18 +96,18 @@ export const Intro = () => {
 };
 
 export const ResponsiveIpadImage = () => {
+  const isIPhoneSE = useMediaQuery("(min-width: 375px) and (max-width: 375px)");
   const isMobile = useMediaQuery("(max-width: 640px)");
   const isTablet = useMediaQuery("(min-width: 641px) and (max-width: 1024px)");
 
   return (
     <div
       className={cn(
-        "relative lg:scale-150",
-        isMobile
-          ? "w-full h-[200px] scale-150 mb-12"
-          : isTablet
-          ? "w-full h-[300px] scale-150 mb-16"
-          : "w-full h-[500px] xl:h-[600px]"
+        "relative w-full",
+        isIPhoneSE && "h-[140px] scale-90 mb-2",
+        isMobile && !isIPhoneSE && "h-[200px] scale-125 mb-2",
+        isTablet && "h-[300px] scale-150 mb-16",
+        !isMobile && !isTablet && "lg:scale-150 h-[500px] xl:h-[600px]"
       )}
     >
       <Image
