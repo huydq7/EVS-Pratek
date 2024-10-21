@@ -24,8 +24,7 @@ export const Intro = () => {
           "w-full lg:w-1/2 flex flex-col",
           "space-y-6 lg:space-y-8 mb-10 lg:mb-0 lg:ml-20",
           "lg:ml-40",
-          !isMobile && !isTablet && "lg:mt-12",
-          isIPhoneSE && "mt-4 space-y-4"
+          !isMobile && !isTablet && "lg:mt-12"
         )}
       >
         {(isMobile || isTablet) && <ResponsiveIpadImage />}
@@ -33,8 +32,7 @@ export const Intro = () => {
         <h1
           className={cn(
             "font-bold text-center lg:text-left",
-            "text-3xl sm:text-4xl lg:text-5xl xl:text-6xl",
-            isIPhoneSE && "text-2xl mt-2"
+            "text-2xl sm:text-3xl lg:text-5xl xl:text-6xl"
           )}
         >
           <span className="text-brand-primary-medium leading-tight">
@@ -76,9 +74,8 @@ export const Intro = () => {
               "py-3 px-6 sm:py-4 sm:px-8",
               "hover:bg-brand-secondary-dark transition-colors duration-300",
               "shadow-lg hover:shadow-xl",
-              isMobile ? "w-[60%] h-[60px]" : "w-auto",
-              isTablet ? "h-[50px]" : "lg:h-[60px] xl:h-[70px]",
-              isIPhoneSE && "w-full h-[50px] text-sm"
+              isMobile ? "w-[80%] h-[50px]" : "w-auto",
+              isTablet ? "h-[50px]" : "lg:h-[60px] xl:h-[70px]"
             )}
           >
             Dùng thử miễn phí
@@ -104,8 +101,7 @@ export const ResponsiveIpadImage = () => {
     <div
       className={cn(
         "relative w-full",
-        isIPhoneSE && "h-[140px] scale-90 mb-2",
-        isMobile && !isIPhoneSE && "h-[200px] scale-125 mb-2",
+        isMobile && !isIPhoneSE && " h-[200px] scale-125 mt-16",
         isTablet && "h-[300px] scale-150 mb-16",
         !isMobile && !isTablet && "lg:scale-150 h-[500px] xl:h-[600px]"
       )}
