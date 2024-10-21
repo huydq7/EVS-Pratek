@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useMediaQuery } from "usehooks-ts";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export const Intro = () => {
   const isMobile = useMediaQuery("(max-width: 640px)");
@@ -67,19 +68,22 @@ export const Intro = () => {
         </p>
 
         <div className="flex justify-center lg:justify-start">
-          <Button
-            className={cn(
-              "rounded-full bg-brand-secondary-medium text-white",
-              "font-semibold text-base sm:text-lg",
-              "py-3 px-6 sm:py-4 sm:px-8",
-              "hover:bg-brand-secondary-dark transition-colors duration-300",
-              "shadow-lg hover:shadow-xl",
-              isMobile ? "w-[80%] h-[50px]" : "w-auto",
-              isTablet ? "h-[50px]" : "lg:h-[60px] xl:h-[70px]"
-            )}
-          >
-            Dùng thử miễn phí
-          </Button>
+          <Link href="/trial-register">
+            {" "}
+            <Button
+              className={cn(
+                "rounded-full bg-brand-secondary-medium text-white",
+                "font-semibold text-base sm:text-lg",
+                "py-3 px-6 sm:py-4 sm:px-8",
+                "hover:bg-brand-secondary-dark transition-colors duration-300",
+                "shadow-lg hover:shadow-xl",
+                isMobile ? "w-[80%] h-[50px]" : "w-auto",
+                isTablet ? "h-[50px]" : "lg:h-[60px] xl:h-[70px]"
+              )}
+            >
+              Dùng thử miễn phí
+            </Button>
+          </Link>
         </div>
       </div>
 

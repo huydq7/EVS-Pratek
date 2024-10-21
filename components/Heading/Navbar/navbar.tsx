@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 export const Navbar = () => {
   const scrolled = useScrollTop();
@@ -71,9 +72,12 @@ export const Navbar = () => {
             >
               Đăng nhập
             </Button>
-            <Button className="rounded-3xl bg-brand-secondary-medium font-semibold">
-              Dùng thử miễn phí
-            </Button>
+            <Link href="/trial-register">
+              {" "}
+              <Button className="rounded-3xl bg-brand-secondary-medium font-semibold">
+                Dùng thử miễn phí
+              </Button>
+            </Link>
           </div>
 
           <div className="md:hidden">
