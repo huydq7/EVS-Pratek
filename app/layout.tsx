@@ -7,6 +7,12 @@ import "./globals.css";
 //   variable: "--font-geist-montserrat",
 //   weight: "100 900",
 // });
+
+const getisMuseo = localFont({
+  src: "./fonts/Museo.ttf",
+  variable: "--font-geist-museo",
+  weight: "100 900",
+});
 const geisMontserrat = localFont({
   src: "./fonts/Montserrat-VariableFont_wght.ttf",
   variable: "--font-geist-montserrat",
@@ -31,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geisMontserrat.variable} ${geistMono.variable} antialiased`}
+        className={`${geisMontserrat.variable} ${geistMono.variable} ${getisMuseo.variable} antialiased`}
       >
         {children}
       </body>

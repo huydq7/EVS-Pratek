@@ -11,6 +11,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         montserrat: ["var(--font-geist-montserrat)", "sans-serif"],
+        museo: ["var(--font-geist-museo)", "sans-serif"],
       },
       colors: {
         // Các màu cũ

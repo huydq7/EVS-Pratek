@@ -132,13 +132,13 @@ export const Navbar: React.FC<NavbarProps> = ({ initialActiveHeading }) => {
 
           <div className="hidden md:flex items-center space-x-4">
             <Button
-              className="rounded-3xl border-brand-primary-veryDark text-brand-primary-veryDark font-sm font-semibold hover:bg-brand-primary-light"
+              className="rounded-3xl border-brand-primary-veryDark text-brand-primary-veryDark font-sm font-semibold hover:bg-brand-primary-light font-museo"
               variant="outline"
             >
               Đăng nhập
             </Button>
             <Link href="/trial-register">
-              <Button className="rounded-3xl bg-brand-secondary-medium font-semibold">
+              <Button className="rounded-3xl bg-brand-secondary-medium font-semibold font-museo">
                 Dùng thử miễn phí
               </Button>
             </Link>
@@ -203,13 +203,13 @@ export const Navbar: React.FC<NavbarProps> = ({ initialActiveHeading }) => {
 
           <div className="p-4 space-y-4">
             <Button
-              className="w-full rounded-3xl border-brand-primary-veryDark text-brand-primary-veryDark font-sm font-semibold hover:bg-brand-primary-light"
+              className="w-full rounded-3xl border-brand-primary-veryDark text-brand-primary-veryDark font-sm font-semibold hover:bg-brand-primary-light font-museo"
               variant="outline"
             >
               Đăng nhập
             </Button>
             <Link href="/trial-register">
-              <Button className="w-full rounded-3xl bg-brand-secondary-medium font-semibold">
+              <Button className="w-full rounded-3xl bg-brand-secondary-medium font-semibold font-museo mt-4">
                 Dùng thử miễn phí
               </Button>
             </Link>
