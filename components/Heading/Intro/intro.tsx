@@ -106,8 +106,8 @@ export const ResponsiveIpadImage = () => {
       className={cn(
         "relative w-full",
         isMobile && !isIPhoneSE && " h-[200px] scale-125 mt-16",
-        isTablet && "h-[300px] scale-150 mb-16",
-        !isMobile && !isTablet && "lg:scale-150 h-[500px] xl:h-[600px]"
+        isTablet && "h-[300px] scale-125 mb-16",
+        !isMobile && !isTablet && "lg:scale-125 h-[500px] xl:h-[600px] lg:mr-8"
       )}
     >
       <Image

@@ -19,8 +19,8 @@ const TrialRegisterPage = () => {
   const isTablet = useMediaQuery("(min-width: 641px) and (max-width: 1024px)");
 
   return (
-    <div className="flex flex-col justify-center items-center font-montserrat">
-      <div className="h-[80px] w-full flex items-center justify-between px-40">
+    <div className="flex flex-col justify-center items-center font-montserrat px-10 lg:px-40">
+      <div className="h-[80px] w-full flex items-center justify-between ">
         <Link href="/">
           <Image
             className="cursor-pointer"
@@ -36,7 +36,7 @@ const TrialRegisterPage = () => {
           <MailIcon className="mr-2" /> sales@pratek.vn
         </div>
       </div>
-      <div className="w-full max-w-[750px]  px-10 bg-brand-primary-veryLight rounded-lg shadow-md flex flex-col items-center justify-center mt-20">
+      <div className="w-full max-w-[750px]  px-10 bg-brand-primary-veryLight rounded-3xl shadow-md flex flex-col items-center justify-center mt-20">
         <h2 className="text-[20px] font-bold text-center text-brand-primary-dark mt-6">
           ĐĂNG KÝ DÙNG THỬ
         </h2>
@@ -51,7 +51,7 @@ const TrialRegisterPage = () => {
               <Form.Item
                 name="taxCode"
                 label="Mã số thuế"
-                style={{ marginBottom: "16px" }} // Thu hẹp khoảng cách
+                style={{ marginBottom: "16px" }}
                 rules={[
                   { required: true, message: "Vui lòng nhập mã số thuế" },
                 ]}
@@ -63,7 +63,7 @@ const TrialRegisterPage = () => {
               <Form.Item
                 name="contactName"
                 label="Tên người liên hệ"
-                style={{ marginBottom: "16px" }} // Thu hẹp khoảng cách
+                style={{ marginBottom: "16px" }}
                 rules={[
                   {
                     required: true,
@@ -78,7 +78,7 @@ const TrialRegisterPage = () => {
           <Form.Item
             name="companyName"
             label="Tên công ty"
-            style={{ marginBottom: "16px" }} // Thu hẹp khoảng cách
+            style={{ marginBottom: "16px" }}
             rules={[{ required: true, message: "Vui lòng nhập tên công ty" }]}
           >
             <Input placeholder="Tên công ty" />
@@ -86,7 +86,7 @@ const TrialRegisterPage = () => {
           <Form.Item
             name="address"
             label="Địa chỉ"
-            style={{ marginBottom: "16px" }} // Thu hẹp khoảng cách
+            style={{ marginBottom: "16px" }}
             rules={[{ required: true, message: "Vui lòng nhập địa chỉ" }]}
           >
             <Input placeholder="Địa chỉ" />
@@ -96,7 +96,7 @@ const TrialRegisterPage = () => {
               <Form.Item
                 name="phone"
                 label="Điện thoại liên hệ"
-                style={{ marginBottom: "16px" }} // Thu hẹp khoảng cách
+                style={{ marginBottom: "16px" }}
                 rules={[
                   { required: true, message: "Vui lòng nhập số điện thoại" },
                 ]}
@@ -108,7 +108,7 @@ const TrialRegisterPage = () => {
               <Form.Item
                 name="email"
                 label="Email liên hệ"
-                style={{ marginBottom: "16px" }} // Thu hẹp khoảng cách
+                style={{ marginBottom: "16px" }}
                 rules={[
                   {
                     required: true,
